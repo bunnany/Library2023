@@ -9,8 +9,9 @@ import ecs100.*;
  */
 public class Books
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // instance variables
+    private HashMap<Integer, Book> booksMap; // declare the hashmap
+    private int currBookId;         // store the current id of book being added
 
     /**
      * Constructor for objects of class Books
@@ -18,18 +19,26 @@ public class Books
     public Books()
     {
         // initialise instance variables
-        x = 0;
+        booksMap = new HashMap<Integer, Book>();    // initialise hashmap
+        
+        // Create some books
+        Book b1 = new Book("Cellphone", "Stephen King", 86);
+        Book b2 = new Book("Pet Semetary", "Stephen King", 68);
+        Book b3 = new Book("1984", "George Orwell", 63);
+        
+        // Add books to collection
+        booksMap.put(1, b1);
+        booksMap.put(2, b2);
+        booksMap.put(3, b3);
+        
+        this.currBookId = 3;        
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Adds book to hashmap
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void addbook(String nm, String auth, int qty, String img){
+        currBookId++;   // increment book id
+        booksMap.put(currBookId, new Book(nm, auth, qty, img));
     }
 }

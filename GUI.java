@@ -1,14 +1,16 @@
 
+import ecs100.*;
 /**
- * Write a description of class GUI here.
+ * Class to handle the GUI functionality
  *
  * @author (your name)
  * @version (a version number or a date)
  */
 public class GUI
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // instance variables
+    private Books books;
+    
 
     /**
      * Constructor for objects of class GUI
@@ -16,18 +18,30 @@ public class GUI
     public GUI()
     {
         // initialise instance variables
-        x = 0;
+        books = new Books();
+        UI.initialise();
+        //UI.addButton("All", books::printAll);
+        //UI.addButton("Add", this::addBook);
+        //UI.addButton("Find", this::findBook);
+        UI.addButton("Quit", UI::quit);
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Add book to collection
+     * 
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void addBook() {
+        final int MAX_QUANTITY = 999;
+        
+        // Ask the user for details
+        String name = UI.askString("Title: ");
+        String author = UI.askString("Author: ");
+        
+        int quantity = UI.askInt("Quantity: ");     // this requires validation
+        
+        // add a book image for display in GUI
+        String imgFileName = UIFileChooser.open("Choose Image File: ");
+        
+        books.addBook(name, author, quantity, imgFileName);
     }
 }
