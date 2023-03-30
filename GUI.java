@@ -22,7 +22,7 @@ public class GUI
         UI.initialise();
         //UI.addButton("All", books::printAll);
         UI.addButton("Add", this::addBook);
-        //UI.addButton("Find", this::findBook);
+        UI.addButton("Find", this::findBook);
         UI.addButton("Quit", UI::quit);
     }
 
@@ -43,5 +43,20 @@ public class GUI
         String imgFileName = UIFileChooser.open("Choose Image File: ");
         
         books.addBook(name, author, quantity, imgFileName);
+    }
+    
+    
+    /**
+     * Finds book based on name
+     * Prints out the author, qty and book cover if found
+     */
+    public void findBook() {
+        String bookName = UI.askString("Name of book: ");
+        if (books.findBook(bookName)) {
+            UI.println("Found book!");
+        } else {
+            UI.println("Book not found!");
+        }
+        
     }
 }

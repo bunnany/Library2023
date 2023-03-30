@@ -42,4 +42,11 @@ public class Book
         this(nm, auth, qty, null);
     }
 
+    /**
+     * Getter for name
+     * @return String the name of book
+     */
+    public String getName() {
+        return this.name;
+    }
 }
