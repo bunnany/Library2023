@@ -1,4 +1,4 @@
-
+import ecs100.*;
 /**
  * Support class of Book
  * A book contains an name, author, qty, image
@@ -48,5 +48,25 @@ public class Book
      */
     public String getName() {
         return this.name;
+    }
+    
+    /**
+     * Display image on GUI
+     */
+    public void displayBook() {
+        int locX = 100;
+        int locY = 100;
+        final double WIDTH = 100;
+        final double HEIGHT = 100;
+       
+        UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
+    }
+    
+    public String getAuthor() {
+        return this.author;
+    }
+    
+    public int getQuantity() {
+        return this.quantity;
     }
 }
