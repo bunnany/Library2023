@@ -24,6 +24,8 @@ public class Book
         this.name = nm;
         this.author = auth;
         this.quantity = qty;
+        
+        // If the user selects cancel instead of giving image
         if (img == null) {
             this.image = DEFAULT_IMAGE;
         } else {
@@ -37,7 +39,7 @@ public class Book
     public Book(String nm, String auth, int qty)
     {
         // initialise instance variables
-        this(nm, auth, qty, DEFAULT_IMAGE);
+        this(nm, auth, qty, null);
     }
 
 }

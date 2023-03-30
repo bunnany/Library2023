@@ -37,7 +37,7 @@ public class Books
     /**
      * Adds book to hashmap
      */
-    public void addbook(String nm, String auth, int qty, String img){
+    public void addBook(String nm, String auth, int qty, String img){
         currBookId++;   // increment book id
         booksMap.put(currBookId, new Book(nm, auth, qty, img));
     }

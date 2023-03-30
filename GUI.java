@@ -21,7 +21,7 @@ public class GUI
         books = new Books();
         UI.initialise();
         //UI.addButton("All", books::printAll);
-        //UI.addButton("Add", this::addBook);
+        UI.addButton("Add", this::addBook);
         //UI.addButton("Find", this::findBook);
         UI.addButton("Quit", UI::quit);
     }
